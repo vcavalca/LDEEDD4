@@ -1,9 +1,9 @@
-NAME = lista
+NAME = list
 
 CC = clang
 CFLAGS = -c -Wall -Werror -Wextra
 
-SRCS = sources/ft_main.c sources/ft_utils.c
+SRCS = ft_main.c
 
 OBJ = $(SRCS:.c=.o)
 
