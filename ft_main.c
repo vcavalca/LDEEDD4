@@ -121,21 +121,23 @@ void    ft_find_name(void)
 	struct s_student *aux = actual;
 	struct s_student *next = actual;
 	if (aux == NULL)
-		printf("Nome não encontrado.\n\n");
+		printf("Lista esta vazia.\n\n");
 	while (aux != NULL)
 	{
-		i = 0;
 		while (aux->name == ft_strnstr(aux->name, name, sizeof(name)))
 		{
 			printf("Nome encontrado: \n\n");
 			printf("Nome: %s", aux->name);
 			printf(" || ");
 			printf("RA: %llu\n", aux->ra);
+			i = 1;
 			break;
 		}
 		next = aux;
 		aux = aux->previous;
 	}
+	if (i != 1)
+		printf("Nome não encontrado.\n\n");
 	return ;
 }
 
@@ -143,9 +145,13 @@ void    ft_find_name(void)
 void    ft_free_lst(void)
 {
 	if (actual == NULL){
-		printf("\nLista já esta vazia!");
+		printf("\nLista já esta vazia!\n\n");
 	}else{
-		actual = NULL;
+		while (actual != NULL)
+		{
+			actual = actual->previous;
+		}
+		free(actual);
 		printf("\nA lista foi limpa!\n\n");
 	}
 	return ;
