@@ -68,7 +68,7 @@ void    ft_print_lst(void)
 	printf("\n#### Lista #####\n\n");
 	struct s_student *aux = actual;
 	if (aux == NULL)
-		printf("\nLista Vazia!\n");
+		printf("Lista Vazia!\n\n");
 	else
 	{
 		while (aux != NULL)
@@ -113,7 +113,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 void    ft_find_name(void)
 {
 	char	name[25];
-	int		i;
+	int		i = 0;
 
 	printf("\n#### Consulta por nome ####\n\n");
 	printf("Digite o nome ou uma parte dele: ");
@@ -121,14 +121,17 @@ void    ft_find_name(void)
 	struct s_student *aux = actual;
 	struct s_student *next = actual;
 	if (aux == NULL)
-		printf("Lista esta vazia.\n\n");
+	{
+		printf("\nLista esta vazia.\n\n");
+		i = 1;
+	}
 	while (aux != NULL)
 	{
 		while (aux->name == ft_strnstr(aux->name, name, sizeof(name)))
 		{
 			printf("Nome encontrado: \n\n");
 			printf("Nome: %s", aux->name);
-			printf(" || ");
+			printf(" --> ");
 			printf("RA: %llu\n", aux->ra);
 			i = 1;
 			break;
@@ -137,7 +140,7 @@ void    ft_find_name(void)
 		aux = aux->previous;
 	}
 	if (i != 1)
-		printf("Nome não encontrado.\n\n");
+		printf("\nNome não encontrado.\n\n");
 	return ;
 }
 
