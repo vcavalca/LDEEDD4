@@ -1,5 +1,5 @@
 # LDEEDD4
-Projeto em C, lista duplamente encadeada.
+Projeto em C, lista encadeada.
 
 **Grupo:**
 <br>Getulio
